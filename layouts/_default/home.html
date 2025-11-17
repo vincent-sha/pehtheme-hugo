@@ -76,7 +76,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
 
-    {{ $paginator := .Paginate ( where site.RegularPages "Type" "in" site.Params.mainSections) 9 }}
+    {{ $paginator := .Paginate ( where site.RegularPages "Type" "in" site.Params.mainSections) 6 }}
 
     {{ range $paginator.Pages }}
 
