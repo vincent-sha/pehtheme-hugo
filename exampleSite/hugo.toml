@@ -12,6 +12,18 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 	description = 'Pehtheme Hugo Lite: A minimalist Hugo theme, built with TailwindCSS, for efficient performance and minimalism.'
 	mainSections = 'posts'
 
+[params.comments]
+	# Replace these placeholders with values from https://giscus.app
+	provider = 'giscus'
+	repo = 'your-org/your-repo'
+	repoId = ''
+	category = 'General'
+	categoryId = ''
+	mapping = 'pathname'
+	reactionsEnabled = '1'
+	theme = 'preferred_color_scheme'
+	lang = 'zh-CN'
+
 [author]
 	name = 'Anthony Arphan'
 	bio = 'Debitis assumenda esse dignissimos aperiam delectus maxime tenetur repudiandae dolore'

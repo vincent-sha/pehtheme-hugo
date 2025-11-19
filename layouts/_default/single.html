@@ -93,9 +93,12 @@
 
         <h2 class="text-xl font-semibold">Comment</h2>
 
-        <p>Disqus comment here</p>
-
-        {{- /* template "_internal/disqus.html" . */ -}}
+        {{- $provider := default "" .Site.Params.comments.provider -}}
+        {{- if eq $provider "giscus" -}}
+          {{- partial "comments/giscus.html" . -}}
+        {{- else -}}
+          <p>Disqus comment here</p>
+        {{- end -}}
 
       </div>
 

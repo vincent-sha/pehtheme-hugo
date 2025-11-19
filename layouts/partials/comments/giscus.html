@@ -1,0 +1,17 @@
+<div id="giscus-container" class="mt-6">
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ default "" .Site.Params.comments.repo }}"
+    data-repo-id="{{ default "" .Site.Params.comments.repoId }}"
+    data-category="{{ default "" .Site.Params.comments.category }}"
+    data-category-id="{{ default "" .Site.Params.comments.categoryId }}"
+    data-mapping="{{ default "pathname" .Site.Params.comments.mapping }}"
+    data-reactions-enabled="{{ default "1" .Site.Params.comments.reactionsEnabled }}"
+    data-theme="{{ default "light" .Site.Params.comments.theme }}"
+    data-lang="{{ default "en" .Site.Params.comments.lang }}"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <noscript>
+    Please enable JavaScript to view the comments.
+  </noscript>
+</div>
