@@ -2,13 +2,14 @@
 module.exports = {
   darkMode: 'class',
   content: [
-      "content/**/*.md",
-      "./themes/pehtheme-hugo/**/*.{html,js}"
-    ],
+    './layouts/**/*.html',
+    './assets/**/*.{css,js}',
+    './exampleSite/**/*.{html,js}'
+  ],
   theme: {
     extend: {},
   },
   plugins: [
     require('@tailwindcss/typography')
-    ],
+  ],
 }
