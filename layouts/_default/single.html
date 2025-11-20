@@ -89,7 +89,7 @@
 
     <footer id="content-footer" class="not-prose">
 
-      <div id="comment" class="border p-8 bg-zinc-100 rounded-2xl">
+      <div id="comment" class="border border-zinc-200 p-8 bg-zinc-100 rounded-2xl dark:border-zinc-800 dark:bg-zinc-900">
 
         <h2 class="text-xl font-semibold">Comment</h2>
 
@@ -102,9 +102,14 @@
 
       </div>
 
-      <div id="author-box" class="my-8 md:my-14 border p-8 bg-zinc-100 rounded-2xl">
+      <div id="author-box" class="my-8 md:my-14 border border-zinc-200 p-8 bg-zinc-100 rounded-2xl dark:border-zinc-800 dark:bg-zinc-900">
 
-        <img class="w-20 h-20 rounded-full" src="{{ .Site.Params.Author.avatar }}" alt="{{ .Site.Params.Author.name }}">
+        {{- with resources.Get .Site.Params.Author.avatar }}
+          {{- $profile := .Resize "320x" -}}
+          <img class="w-20 h-20 rounded-full object-cover" src="{{ $profile.Permalink }}" alt="{{ .Site.Params.Author.name }}">
+        {{- else }}
+          <img class="w-20 h-20 rounded-full object-cover" src="{{ .Site.Params.Author.avatar }}" alt="{{ .Site.Params.Author.name }}">
+        {{- end }}
 
         <h2 class="text-xl font-bold my-4">Written by : {{ .Site.Params.Author.name }}</h2>
 

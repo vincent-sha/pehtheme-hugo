@@ -1,5 +1,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+	(function () {
+		try {
+			var STORAGE_KEY = 'pehtheme-theme';
+			var root = document.documentElement;
+			var stored = localStorage.getItem(STORAGE_KEY);
+			var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			var initial = stored === 'dark' || stored === 'light' ? stored : (prefersDark ? 'dark' : 'light');
+			root.dataset.theme = initial;
+			if (initial === 'dark') {
+				root.classList.add('dark');
+			}
+		} catch (err) {
+			// eslint-disable-next-line no-console
+			console && console.warn && console.warn('theme read failed', err);
+		}
+	})();
+</script>
 <!-- Dynamic title for SEO -->
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <!-- Dynamic description for SEO -->

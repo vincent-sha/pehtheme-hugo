@@ -3,7 +3,7 @@
 <!-- Feature post by tag = "feature" -->
 
 {{- range where .Site.RegularPages "Params.tags" "intersect" (slice "feature" ) | first 1 -}}
-<section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-blue-100">
+<section class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-blue-100 dark:bg-zinc-900 dark:border dark:border-zinc-800 dark:hover:bg-zinc-800">
   <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border">
 
     {{- if .Params.image }}
@@ -34,6 +34,18 @@
 
 <!-- / End feature post  -->
 
+<div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 mb-10 flex flex-wrap items-center justify-between gap-4">
+  <p class="text-sm text-zinc-500 dark:text-zinc-400">切换黑暗/明亮主题，以适配你的浏览习惯。</p>
+  <button
+    type="button"
+    data-theme-toggle
+    class="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-semibold text-zinc-900 transition-colors hover:border-zinc-400 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-500 dark:hover:bg-zinc-800"
+  >
+    <span data-theme-icon class="text-lg leading-none">🌙</span>
+    <span data-theme-label class="ml-2 text-xs">切换主题</span>
+  </button>
+</div>
+
 <!-- Category Post -->
 
 {{- range .Site.Taxonomies.categories.ByCount }}
@@ -45,7 +57,7 @@
 
       <h2 class="text-3xl md:text-4xl font-bold mr-auto">{{ $cat | humanize }}</h2>
 
-      <a class="border rounded-full py-2 px-4 md:px-6 hover:bg-blue-100" href="{{ printf "/categories/%s" $cat | absURL }}">View All</a>
+      <a class="border rounded-full py-2 px-4 md:px-6 hover:bg-blue-100 dark:border-zinc-600 dark:hover:bg-blue-900" href="{{ printf "/categories/%s" $cat | absURL }}">View All</a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10">
@@ -90,11 +102,11 @@
 
     <div class="flex items-center mt-10">
       {{- if $paginator.HasPrev -}}
-        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 mr-auto" href="{{ $paginator.Prev.URL }}">← Previous</a>
+        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 mr-auto dark:border-zinc-600 dark:hover:bg-zinc-800" href="{{ $paginator.Prev.URL }}">← Previous</a>
       {{- end -}}
 
       {{- if $paginator.HasNext -}}
-        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200" href="{{ $paginator.Next.URL }}">Next →</a>
+        <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 dark:border-zinc-600 dark:hover:bg-zinc-800" href="{{ $paginator.Next.URL }}">Next →</a>
       {{- end -}}
     </div>
 
